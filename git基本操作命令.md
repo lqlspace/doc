@@ -132,8 +132,8 @@ git remote set-url origin newurl
 
 
 #### 17. git的生命周期
-![](media/git-life-cycle.jpg)
+![](./media/git-life-cycle.jpg)
 
 
 #### 18. git的数据流走向
-![](media/git-data-transport-commands.png)
+![](./media/git-data-transport-commands.png)
