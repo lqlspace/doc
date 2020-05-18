@@ -28,6 +28,7 @@
    ```
 
 2. `commit` 提交规范
+![规范链接](https://www.conventionalcommits.org/en/v1.0.0/)
 
    ```shell
    #完成了怎么样的事情
