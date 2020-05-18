@@ -18,33 +18,36 @@
 
    ```shell
    // 切到master分支
-   git checkout master or gcm or gcm
+   git checkout master（gcm）
 
    // 拉取最新代码
-   git pull --rebase --autostash or  gupa
+   git pull --rebase --autostash (gupa)
 
    // 切一个新的分支，功能分支起名「feature/版本号」，修复分支起名「hotfix/版本号」
    git checkout -b feature/111 or gcb feature/111
    ```
 
-2. `commit` 提交规范
-![规范链接](https://www.conventionalcommits.org/en/v1.0.0/)
+2. `commit` 提交规范  
+> [规范链接](https://www.conventionalcommits.org/en/v1.0.0/)
 
    ```shell
-   #完成了怎么样的事情
-   git commit -m feat: xx
-   #12345(bugId)什么样子的bug
-   git commit -m fixed: xx
-   #关于什么的重构
-   git commit -m refactor: xx
-   #不会修改src或测试文件的更改。例如更新构建任务，程序包管理器
-   git commit -m chore: xxx
-   #代码样式，不影响代码含义的更改（空白，格式，缺少分号等）
-   git commit -m style: xx
-   #添加缺少的测试或更正现有测试
-   git commit -m test: xxx
-   #还原提交
-   git commit -m revert: xx
+type: commit 的类型
+feat: 新特性
+fix: 修改问题
+refactor: 代码重构
+docs: 文档修改
+style: 代码格式修改, 注意不是 css 修改
+test: 测试用例修改
+chore: 其他修改, 比如构建流程, 依赖管理.
+scope: commit 影响的范围, 比如: route, component, utils, build...
+subject: commit 的概述, 建议符合  50/72 formatting
+body: commit 具体修改内容, 可以分为多行, 建议符合 50/72 formatting
+footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.
+
+作者：阿里南京技术专刊
+链接：https://juejin.im/post/5afc5242f265da0b7f44bee4
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
    ```
 
 3. 多人开发同个功能分支时
