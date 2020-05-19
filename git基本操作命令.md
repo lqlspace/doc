@@ -38,7 +38,7 @@ grba （git rebase --abort）
 - d. 删除远程tag：git push origin :refs/tags/v0.9.3
 - e. 推送tag：git push --tags
 
-### 工作区误删除的文件一次性恢复
+### 恢复工作区误删除的文件
 ```
 git ls-files -d | xargs git checkout --
 ```
@@ -52,6 +52,24 @@ git ls-files -d | xargs git checkout --
 ### 恢复文件
 - git checkout -- file
 - 命令中的“--”很重要，没有“--”，就变成了“创建一个新分支”的命令
+
+### hunk提交
+> 自己筛选该提交哪些代码块  
+```cassandraql
+git add --path(或者-p)  (zsh: gapa)
+
+//交互帮助：
+y - stage this hunk
+n - do not stage this hunk
+q - quit; do not stage this hunk or any of the remaining ones
+a - stage this hunk and all later hunks in the file
+d - do not stage this hunk or any of the later hunks in the file
+g - select a hunk to go to
+/ - search for a hunk matching the given regex
+J - leave this hunk undecided, see next hunk
+e - manually edit the current hunk
+? - print help
+```
 
 ### 查看提交log
 - 查看单行提交记录 
