@@ -43,12 +43,7 @@ scope: commit 影响的范围, 比如: route, component, utils, build...
 subject: commit 的概述, 建议符合  50/72 formatting
 body: commit 具体修改内容, 可以分为多行, 建议符合 50/72 formatting
 footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.
-
-作者：阿里南京技术专刊
-链接：https://juejin.im/post/5afc5242f265da0b7f44bee4
-来源：掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-   ```
+```
 
 3. 多人开发同个功能分支时
 
