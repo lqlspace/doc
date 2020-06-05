@@ -16,6 +16,11 @@ git config --local user.email "username@xiaoheiban.com"
 git config --unset alias.co
 ```
 
+### git cherry-pick
+```cassandraql
+git cherry-pick b45b271b32^..e674a524a8  // 闭区间，前面的先提交的
+```
+
 ### 合并分支
 将develop合并到master：
 
