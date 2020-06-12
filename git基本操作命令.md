@@ -1,19 +1,15 @@
-## Git常用命令
-[GIT 练习](https://learngitbranching.js.org/?locale=zh_CN)
- 
-
-### 账号配置：
+## 1. 账号配置：
 ```
 // 配置全局账号
 git config --global user.name "username"
 git config --global user.email "username@xiaoheiban.com"
 
-// 单独配置某项目
+// 单独配置某项目（须进入项目目录下）
 git config --local user.name "username"
 git config --local user.email "username@xiaoheiban.com"
 
 // 删除某项配置
-git config --unset alias.co
+git config --unset 
 ```
 
 ### git cherry-pick
@@ -105,7 +101,7 @@ git stash apply stash@{1}
 ```
 
 ### 提交远程分支
-- 首次提交分支，需要加-u与远程分支关联： git push -u origin develop /(gsup)
+- 首次提交分支，需要加-u与远程分支关联： git push -u origin develop /(gpsup)
 - 关联过只用：git push /(gp)
 
 
@@ -135,3 +131,7 @@ git remote set-url origin newurl
 
 ### git的数据流走向
 ![](./media/git-data-transport-commands.png)
+
+
+### GIT练习
+[GIT 练习](https://learngitbranching.js.org/?locale=zh_CN)
