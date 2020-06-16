@@ -19,9 +19,10 @@ git config [--local|--global] --unset user.name
 git config [--local|--global] --unset user.email
 ```
 - 查看配置
-```cassandraql
+```
 git config --list 
 ```
+
 - 配置rebase方式拉取远程代码&rebase是字段autostash
 ```cassandraql
 git config pull.rebase true
@@ -77,7 +78,14 @@ git reset HEAD^   //即回退到上个版本
 ```cassandraql
 git reset 62091c90  //hash为要回退到的commit的hash
 ```
-- 回退众多提交中的某次提交
+- 使用rebase回退众多提交中的某次提交
+```cassandraql
+1、找到想要删除的commit的前一次提交的commit id
+2、git rebase -i xxxx (前次commit id)
+3、将要删除的commit由pick改为drop 
+4、保存并push
+```
+- 使用revert回退众多提交中的某次提交
 ```cassandraql
 git revert a11bdeadaa  //即产生一个新的revert commit，该commit回退了hash对应提交的代码
 ```
