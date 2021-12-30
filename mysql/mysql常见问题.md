@@ -148,3 +148,27 @@ SELECT * FROM `table` WHERE a IN (1,2,3) and b > 1;
 ## DATETIME类型和TIMESTAMP类型的比较?
 * 1. datetime可以表达的时间范围比较大；2. datetime与时区无关。可靠性和可移植性更好，缺点是存储空间大，8个字节，建议使用；
 * 如果确定timestamp的取值范围够用，也不会有时区的问题，或希望随着数据的更改自动变化的，可以用timestamp。
+
+
+# 5 约束
+## 5.1  类型
+* 默认值约束：就是给字段设置一个默认值。
+* 非空约束：就是声明字段不能为空值。
+* 唯一性约束：就是声明字段不能重复，但可以为空。
+* 自增约束：就是声明字段值能够自动加 1，且不会重复。
+此外还有外键约束、主键约束；
+```cassandraql
+CREATE TABLE(字段名 字段类型 PRIMARY KEY);
+CREATE TABLE(字段名 字段类型 NOT NULL);
+CREATE TABLE(字段名 字段类型 UNIQUE);
+CREATE TABLE(字段名 字段类型 DEFAULT 值);
+-- 这里要注意自增类型的条件，字段类型必须是整数类型。
+CREATE TABLE(字段名 字段类型 AUTO_INCREMENT);
+-- 在一个已经存在的表基础上，创建一个新表
+CREATE TABLE demo.importheadhist LIKE demo.importhead;
+-- 修改表的相关语句
+ALTER TABLE 表名 CHANGE 旧字段名 新字段名 数据类型;
+ALTER TABLE 表名 ADD COLUMN 字段名 字段类型 FIRST|AFTER 字段名;
+ALTER TABLE 表名 MODIFY 字段名 字段类型 FIRST|AFTER 字段名;
+```
+

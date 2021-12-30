@@ -100,7 +100,7 @@ Retention是kafka一个重要概念；kafka不会永远保留数据。kafka管�
 消息大小、校验码、版本号、压缩码、时间戳。  
 
 如果producer发送的是压缩消息，由producer端压缩，consumer端解压，broker视为一个message。 
-![](./media/message_format.png)
+![](../media/message_format.png)
 
 磁盘上存储的文件格式和producer端发送以及发送给
 consumer端的message格式一样。方便zero-copy以及将decompressing、recompressing操作留给client端。
@@ -122,7 +122,7 @@ committed offsets：consumer发送到Kafka的offset，以确认它接收并处�
 
 ## zookeeper
 Apache Kafka使用Zookeeper存储关于Kafka集群的metadata，以及consumer的详细信息:
-![](./media/zookeeper.png)
+![](../media/zookeeper.png)
 
 
 
