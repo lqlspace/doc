@@ -103,11 +103,16 @@ kubeadm join 192.168.196.141:6443 --token i9rpmm.8jqs342cmyj1hfwg \
     --discovery-token-ca-cert-hash sha256:95f83d494d4d484945f8017a70bf2f7c6b238c8ca844d431facc4b19dc4105f2
 ```
 
-## 9. 配置kubectl工具
+## 9. 配置kubectl工具（所有节点均要做）
 ```cassandraql
+  cp /etc/kubernetes/kubelet.conf /etc/kubernetes/admin.conf
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+*如果接地不做如上9操作，执行kubectl命令是会报错：
+```cassandraql
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
 ```
 
 ## 10. 测试kubectl是否可用
@@ -118,7 +123,7 @@ kubectl get nodes
 kubectl get cs
 ```
 
-## 11. 部署 flannel 网络
+## 11. 部署 flannel 网络(仅master节点)
 ```cassandraql
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
 ```
