@@ -5,7 +5,10 @@
 swapoff -a 
 ```
 
-## 2. 更换源
+## 2. 安装docker
+参考[官网安装教程](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+
+## 3. 更换源
 - 切换目录至/etc/apt，然后替换sources.list文件中的内容：
 ```cassandraql
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse                          
@@ -22,7 +25,7 @@ deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu bionic stabl
 # deb-src [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu bionic stable
 ```
 
-## 3. 更新源
+## 4. 更新源
 ```cassandraql
 # 使得 apt 支持 ssl 传输
 apt-get update && apt-get install -y apt-transport-https
@@ -38,7 +41,7 @@ apt-get update
 apt-get install -y kubelet kubeadm kubectl
 ```
 
-## 4. 安装master节点
+## 5. 安装master节点
 ```
 # 先拉取coredns的镜像否则下一步会失败
 docker pull coredns/coredns:1.8.4
@@ -51,12 +54,12 @@ kubeadm init \
 --pod-network-cidr=10.244.0.0/16
 ```
 
-## 5. 如果报错，表示kubernetes和docker使用的cgroup不一致
+## 6. 如果报错，表示kubernetes和docker使用的cgroup不一致
 ```cassandraql
 The HTTP call equal to 'curl -sSL http://localhost:10248/healthz' failed with error: Get "http://localhost:10248/healthz": dial tcp 127.0.0.1:10248: connect: connection refused.
 ```
 
-## 6. 更改docker的cgroup
+## 7. 更改docker的cgroup
 ```cassandraql
 # Create daemon json config file
 sudo tee /etc/docker/daemon.json <<EOF
@@ -76,7 +79,7 @@ sudo systemctl restart docker
 sudo systemctl enable docker
 ```
 
-## 7. kubeadm init初始化报错可以执行kubeadm reset复原，后重新执行，以下为执行成功的现象：
+## 8. kubeadm init初始化报错可以执行kubeadm reset复原，后重新执行，以下为执行成功的现象：
 ```cassandraql
 Your Kubernetes control-plane has initialized successfully!
 
@@ -100,14 +103,14 @@ kubeadm join 192.168.196.141:6443 --token i9rpmm.8jqs342cmyj1hfwg \
     --discovery-token-ca-cert-hash sha256:95f83d494d4d484945f8017a70bf2f7c6b238c8ca844d431facc4b19dc4105f2
 ```
 
-## 8. 配置kubectl工具
+## 9. 配置kubectl工具
 ```cassandraql
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## 9. 测试kubectl是否可用
+## 10. 测试kubectl是否可用
 ```cassandraql
 # 查看已加入的节点
 kubectl get nodes
@@ -115,12 +118,12 @@ kubectl get nodes
 kubectl get cs
 ```
 
-## 10. 部署 flannel 网络
+## 11. 部署 flannel 网络
 ```cassandraql
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
 ```
 
-## 11. 其他子节点安装前三步安装好kubernetes tools后，执行
+## 12. 其他子节点安装前三步安装好kubernetes tools后，执行
 ```cassandraql
 kubeadm join 192.168.196.141:6443 --token i9rpmm.8jqs342cmyj1hfwg \
     --discovery-token-ca-cert-hash sha256:95f83d494d4d484945f8017a70bf2f7c6b238c8ca844d431facc4b19dc4105f2
