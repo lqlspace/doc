@@ -59,19 +59,19 @@ alter user 'allen'@'127.0.0.1' identified with mysql_native_password by '123';
 ```cassandraql
 CREATE TABLE payment (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
-  contract_id int(10) unsigned NOT NULL DEFAULT '0' COMMENT '合同ID',
-  campus_id int(10) unsigned NOT NULL DEFAULT '0' COMMENT '学校ID',
-  product varchar(50) NOT NULL DEFAULT '' COMMENT '产品',
-  product_id varchar(50) NOT NULL DEFAULT '' COMMENT '产品ID',
-  amount int(10) NOT NULL DEFAULT '0' COMMENT '回款金额的100倍',
-  date int(10) unsigned NOT NULL DEFAULT '0' COMMENT '回款日期',
-  content varchar(100) NOT NULL DEFAULT '' COMMENT '回款记录',
-  creator_id int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建人ID',
-  create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  contract_id int(10) unsigned NOT NULL DEFAULT '0' COMMENT '',
+  campus_id int(10) unsigned NOT NULL DEFAULT '0' COMMENT '',
+  product varchar(50) NOT NULL DEFAULT '' COMMENT '',
+  product_id varchar(50) NOT NULL DEFAULT '' COMMENT '',
+  amount int(10) NOT NULL DEFAULT '0' COMMENT '金额的100倍',
+  date int(10) unsigned NOT NULL DEFAULT '0' COMMENT '',
+  content varchar(100) NOT NULL DEFAULT '' COMMENT '',
+  creator_id int(10) unsigned NOT NULL DEFAULT '0' COMMENT '',
+  create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '',
+  update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '',
   PRIMARY KEY (`id`),
   KEY `contract_id_idx` (`contract_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='回款记录表';
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='记录表';
 ```
 
 # 3. 更新表(table)

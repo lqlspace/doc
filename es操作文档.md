@@ -1,15 +1,4 @@
-# (一) 环境配置
-> 测试环境
-```cassandraql
-172.16.54.12:5601
-```
-> 生产环境
-```cassandraql
-datacentre.xiaoheiban.cn
-```
-
-
-# (二) 基本概念
+# (一) 基本概念
 1. index：相当于关系型数据库的database
 2. mapping type: 相当于关系型数据库的table
 3. document:相当于关系型数据库的一条record
@@ -27,7 +16,7 @@ text类型的字段（比如邮件内容或产品描述），此类型字段会�
 (1) keyword类型的字段没有被analyzer解析，可用来作条件过滤、排序或聚合;
 (2) 使用keyword时，match模糊查询也无法匹配
 
-# (三) Document操作
+# (二) Document操作
 ## 1. 查询document
 ### 1. 多条件查询
 ![](./media/es-all-components-search.png)
@@ -167,7 +156,7 @@ GET lqlspace/contract/_search
 {
   "query": {
     "multi_match": {
-      "query": "沛县 班级考核",
+      "query": "沛县 学习",
       "fields": ["contract_name", "location"]
     }
   }
@@ -180,7 +169,7 @@ GET lqlspace/contract/_search
 {
   "query": {
     "match_phrase": {
-      "contract_name": "武宁路小学 班级考核"
+      "contract_name": "武宁路小学 学习"
     }
   }
 }
@@ -360,7 +349,7 @@ GET lqlspace/contract/_search
 PUT lqlspace/contract/10001
 {
   "contract_id": 10001,
-  "contract_name": "武宁路小学+班级考核"
+  "contract_name": "武宁路小学+学习"
 }
 
 POST lqlspace/contract/10002
@@ -402,7 +391,7 @@ POST lqlspace/contract/10006/_update
 DELETE lqlspace/contract/10001
 ```
 
-# (四) mapping type操作
+# (三) mapping type操作
 ## 1. 查看mapping type
 ```cassandraql
 GET school/school/_mapping
@@ -436,7 +425,7 @@ not_analyzed：即跳过analyzer，整个string为一个term
 no：无法搜索该字段；
 ```
 
-# (五) index操作
+# (四) index操作
 ## 1. 删除index
 ```cassandraql
 DELETE lqlspace
