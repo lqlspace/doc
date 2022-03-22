@@ -129,4 +129,26 @@ kubeadm join 192.168.196.141:6443 --token i9rpmm.8jqs342cmyj1hfwg \
     --discovery-token-ca-cert-hash sha256:95f83d494d4d484945f8017a70bf2f7c6b238c8ca844d431facc4b19dc4105f2
 ```
 
+## 13. 如执行kubectl get nodes,发现节点为notready状态，查看日志：
+```cassandraql
+"Container runtime network not ready" networkReady="NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized"
+```
 
+## 14. 解决方案：
+- 登录如下网址，查看raw.githubusercontent.com对应的ip地址：
+[查看IP](http://ip.tool.chinaz.com/raw.githubusercontent.com)
+
+- 将ip地址和域名写入/etc/hosts文件
+```cassandraql
+185.199.110.133 raw.githubusercontent.com
+```
+
+## 15. 重新执行
+```cassandraql
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
+
+## 16. 重启kubelet
+```cassandraql
+systemctl restart kubelet
+```
