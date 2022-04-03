@@ -11,7 +11,7 @@ git config --global https.proxy https://127.0.0.1:1080
 # 设置使用代理
 alias setproxy="export http_proxy=http://127.0.0.1:7890; export https_proxy=$http_pro
 xy; export all_proxy=socks5://127.0.0.1:7890; echo 'Set proxy successfully'"
-# # 设置取消使用代理
+# # **设置取消使用代理**
 alias unsetproxy="unset http_proxy; unset https_proxy; unset all_proxy; echo 'Unset p
 roxy successfully'"
 ```
