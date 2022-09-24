@@ -2,7 +2,7 @@
 
 浏览器登录gmail账号->设置->转发和POP/IMAP->启用IMAP
 
-![](../images/2022-09-24-11-13-46-image.png)
+<img src="../images/2022-09-24-11-13-46-image.png" title="" alt="" width="369">
 
 ### 2. 将默认浏览器设为Safari
 
