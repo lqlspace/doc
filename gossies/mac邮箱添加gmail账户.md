@@ -8,7 +8,7 @@
 
 系统偏好设置->通用->默认网页浏览器
 
-<img src="../images/2022-09-24-11-15-35-image.png" title="" alt="" width="369">
+<img src="../images/2022-09-24-11-15-35-image.png" title="" alt="" width="369">gs
 
 ### 3. 添加google账户
 
@@ -20,6 +20,8 @@
 
 如果默认网页浏览器设置成了Safari，则出现如下页面：
 
-g<img title="" src="../images/2022-09-24-11-19-12-image.png" alt="" width="442">
+<img title="" src="../images/2022-09-24-11-19-12-image.png" alt="" width="442">
 
 正常执行，可顺利添加gmail邮箱。
+
+![](../../images/2022-09-24-11-43-19-image.png)
