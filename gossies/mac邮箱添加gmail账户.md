@@ -2,7 +2,7 @@
 
 浏览器登录gmail账号->设置->转发和POP/IMAP->启用IMAP
 
-![](/Users/liuql/Desktop/doc/images/2022-09-24-11-13-46-image.png)
+![](../images/2022-09-24-11-13-46-image.png)
 
 ### 2. 将默认浏览器设为Safari
 
