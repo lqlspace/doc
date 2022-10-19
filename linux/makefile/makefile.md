@@ -35,6 +35,28 @@ info，warning，error；这三个函数是Makefile中内置的，在任意Makef
 
 - shell中所有引用以$打头的变量其后要加{},而在Makefile中则是加()；
 
+- Makefile中所有以`$`打头的单词都会被解释成Makefile中的变量。如果需要调用shell中的变量，都需要加两个`$$`。
+
+## 打印输出
+
+在Makefile中只能在target中调用shell脚本，其他地方是不能输出的，如下没有输出。
+
+```
+VAR="Hello"
+echo "$VAR"
+all:
+```
+
+如下则可以输出：
+
+```
+VAR="Hello"
+all:
+    echo "$VAR"
+```
+
+
+
 ## Makefile定义变量的时候调用shell命令
 
 - 形式一
@@ -61,7 +83,7 @@ info，warning，error；这三个函数是Makefile中内置的，在任意Makef
   
   采用格式是 $(shell xxx)格式，其中xxx就是一个可以在shell环境下执行的shell命令。
 
-## Makefile在执行命令的时候调用shell命令
+## Makefile在执行命令的时候调用shell脚本
 
 ```
 shell_cmd:
