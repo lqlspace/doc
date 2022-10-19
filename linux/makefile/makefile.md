@@ -33,6 +33,8 @@ info，warning，error；这三个函数是Makefile中内置的，在任意Makef
 
 - shell 中通配符 * 表示所有的字符，Makefile 中通配符 % 表示所有的字符；
 
+- shell中所有引用以$打头的变量其后要加{},而在Makefile中则是加()；
+
 ## Makefile定义变量的时候调用shell命令
 
 - 形式一
