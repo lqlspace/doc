@@ -20,4 +20,10 @@ ret=${a-"/usr/local"}
 echo "ret: " $ret
 ```
 
+## 查询当前使用了哪个shell
+
+```
+env | grep SHELL
+```
+
 
